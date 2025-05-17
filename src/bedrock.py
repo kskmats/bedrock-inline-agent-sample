@@ -203,7 +203,12 @@ class SampleAgent(BaseAgent):
             foundation_model: 使用する基盤モデル名
         """
         super().__init__(foundation_model)
+        from utils import get_current_date
+        self.action_groups = [get_current_date]
+
         self.instruction = """
         あなたは日常会話をするエージェントです。
         ユーザーからの入力に対して、適切な回答をしてください。
+
+        本日の日付を取得する場合は、「get_current_date」を使用してください。
         """
